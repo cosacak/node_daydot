@@ -10,13 +10,13 @@ app.use(express.json())
 let favList = [];
 
 app.post("/favourites", (req, res) => {
-console.log("body",req.body)
+// console.log("body",req.body)
 
-console.log("item",req.body.item)
-console.log("data",req.body.data)
+// console.log("item",req.body.item)
+// console.log("data",req.body.data)
   // const id = parseInt(req.body.id);
   // const name = req.body.item;
-  const favItem = req.body.item
+  const favItem = req.body
 
   favList.push(favItem);
   res.status(200).send(favList);
