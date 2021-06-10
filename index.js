@@ -28,12 +28,8 @@ app.get("/favourites", (req, res) => {
 
 app.delete("/favourites", (req, res) => {
    console.log("body",req.body)
-   console.log("id--",req.body.id)
 
-  const id = parseInt(req.body.id);
-
-  const favItem = favList.find(f => f.id === id);
-  
+  const favItem = req.body
   
   const index = favList.indexOf(favItem);
   console.log("index",index)
