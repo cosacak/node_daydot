@@ -4,20 +4,12 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
-app.use(express.json())
-
+app.use(express.json());
 
 let favList = [];
 
 app.post("/favourites", (req, res) => {
-// console.log("body",req.body)
-
-// console.log("item",req.body.item)
-// console.log("data",req.body.data)
-  // const id = parseInt(req.body.id);
-  // const name = req.body.item;
-  const favItem = req.body
-
+  const favItem = req.body;
   favList.push(favItem);
   res.status(200).send(favList);
 });
@@ -27,14 +19,10 @@ app.get("/favourites", (req, res) => {
 });
 
 app.delete("/favourites", (req, res) => {
-   console.log("body",req.body)
-
-  const favItem = req.body
-
-  const item =  favList.find(f => f.id === favItem.id)
-  
+  const favItem = req.body;
+  const item = favList.find((f) => f.id === favItem.id);
   const index = favList.indexOf(item);
-  console.log("index",index)
+
   if (index > -1) {
     favList.splice(index, 1);
   }
@@ -42,7 +30,7 @@ app.delete("/favourites", (req, res) => {
   res.status(200).send(favList);
 });
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`port ${PORT} started...`);
