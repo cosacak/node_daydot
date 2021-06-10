@@ -30,8 +30,10 @@ app.delete("/favourites", (req, res) => {
    console.log("body",req.body)
 
   const favItem = req.body
+
+  const item =  favList.find(f => f.id === favItem.id)
   
-  const index = favList.indexOf(favItem);
+  const index = favList.indexOf(item);
   console.log("index",index)
   if (index > -1) {
     favList.splice(index, 1);
