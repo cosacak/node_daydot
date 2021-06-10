@@ -39,6 +39,8 @@ app.delete("/favourites", (req, res) => {
   res.status(200).send(favList);
 });
 
-app.listen(3001, () => {
-  console.log("port 3001 started...");
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => {
+  console.log(`port ${PORT} started...`);
 });
