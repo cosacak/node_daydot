@@ -12,9 +12,11 @@ let favList = [];
 app.post("/favourites", (req, res) => {
 console.log("body",req.body)
 
-  const id = parseInt(req.body.id);
-  const name = req.body.name;
-  const favItem = {id,name}
+console.log("item",req.body.item)
+console.log("data",req.body.data)
+  // const id = parseInt(req.body.id);
+  // const name = req.body.item;
+  const favItem = req.body.item
 
   favList.push(favItem);
   res.status(200).send(favList);
